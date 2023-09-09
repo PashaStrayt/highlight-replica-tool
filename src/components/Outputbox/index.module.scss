@@ -11,18 +11,6 @@
   &:hover,
   &:active {
     border: 1px solid var(--blue-3);
-
-    .outputbox {
-      filter: blur(6px);
-    }
-
-    .outputbox__plate {
-      opacity: 0.46;
-    }
-
-    .outputbox__hint {
-      opacity: 1;
-    }
   }
 
   cursor: text;

@@ -129,8 +129,9 @@ export const Tool = () => {
         <div className={style['tool__text-container']}>
           <div className={style.tool__head}>
             <Text mode='blue'>Take highlighted here</Text>
+            <Button onClick={copy}>copy</Button>
           </div>
-          <Outputbox nodeRef={textField1} className={style['tool__text-field']} onCopy={copy} />
+          <Outputbox nodeRef={textField1} className={style['tool__text-field']} />
         </div>
       </div>
     </Container>
