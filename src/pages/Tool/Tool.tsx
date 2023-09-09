@@ -104,6 +104,7 @@ export const Tool = () => {
         <Input
           placeholder='Enter name of character'
           onChange={(event) => name.current = event.target.value.toUpperCase()}
+          onKeyDown={(event) => (event.key === 'Enter' ? highlight() : null)}
         />
         <Button onClick={isMobile ? highlightAndCopy : highlight}>{isMobile ? 'highlight & copy' : 'highlight'}</Button>
       </div>
