@@ -54,7 +54,7 @@ export const Tool = () => {
     }).replaceAll('\n', '<br>');
 
     // eslint-disable-next-line max-len
-    textField1.current.innerHTML = `<span style="font-family: 'Courier New', Courier, monospace; font-size: 16px">${result}</span>`;
+    textField1.current.innerHTML = `<span style="font-family: 'Courier New', Courier, monospace; font-size: 16px; line-height: 17px">${result}</span>`;
   };
 
   const copy = () => {
@@ -125,6 +125,12 @@ export const Tool = () => {
                 element.style.height = `${element.scrollHeight}px`;
               }
             }}
+            onScroll={(event) => {
+              const syncField = textField1.current;
+              if (syncField) {
+                syncField.scrollTop = (event.target as HTMLDivElement).scrollTop;
+              }
+            }}
           />
         </div>
         <div className={style['tool__text-container']}>
@@ -132,7 +138,16 @@ export const Tool = () => {
             <Text mode='blue'>Take highlighted here</Text>
             <Button onClick={copy}>copy</Button>
           </div>
-          <Outputbox nodeRef={textField1} className={style['tool__text-field']} />
+          <Outputbox
+            nodeRef={textField1}
+            className={style['tool__text-field']}
+            onScroll={(event) => {
+              const syncField = textField0.current;
+              if (syncField) {
+                syncField.scrollTop = (event.target as HTMLDivElement).scrollTop;
+              }
+            }}
+          />
         </div>
       </div>
     </Container>
